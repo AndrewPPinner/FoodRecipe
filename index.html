@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://unpkg.com/vue@3.0.2"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <link rel="stylesheet" href='stylesheet.css'>
     </head>
     <body>
         <div id="app">
@@ -15,11 +16,26 @@
             <p></p>
             <button @click='randomRecipes()'>Get a random recipe</button>
             <button @click='randomVeg()'>Get a random Vegetarian recipe</button>
+                <div>
+                    <button @click='randomMeal(mealType)'>Get a random meal</button>
+                    <br>
+                    <input v-model='mealType' type="radio" id="Breakfast" value="breakfast">
+                    <label for="Breakfast">Breakfast</label>
+                    <br>
+                    <input v-model='mealType' type="radio" id="Lunch" value="lunch">
+                    <label for="Lunch">Lunch</label>
+                    <br>
+                    <input v-model='mealType' type="radio" id="Dinner" value="dinner">
+                    <label for="Dinner">Dinner</label>
+                    <br>
+                    <input v-model='mealType' type="radio" id="Dessert" value="dessert">
+                    <label for="Dessert">Dessert</label>
+                </div>
             <h2>{{ title }}</h2>
             <p>{{ instructions }}</p>
             <img id='foodIMG' v-bind:src=img>
             <br>
-            <a v-show='show' v-bind:href=source>Source</a>
+            <a v-show='show' target="_blank" v-bind:href=source>Source</a>
 
         </div>
         <script src="app.js"></script>
