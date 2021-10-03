@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en"></html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <title>Free and Easy Recipes</title>
@@ -8,35 +8,76 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://unpkg.com/vue@3.0.2"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <link rel="stylesheet" href='stylesheet.css'>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     </head>
-    <body>
+    <body class="text-white bg-dark mb-3">
         <div id="app">
             <h1>Recipes</h1>
-            <p></p>
-            <button @click='randomRecipes()'>Get a random recipe</button>
-            <button @click='randomVeg()'>Get a random Vegetarian recipe</button>
-                <div>
-                    <button @click='randomMeal(mealType)'>Get a random meal</button>
-                    <br>
-                    <input v-model='mealType' type="radio" id="Breakfast" value="breakfast">
-                    <label for="Breakfast">Breakfast</label>
-                    <br>
-                    <input v-model='mealType' type="radio" id="Lunch" value="lunch">
-                    <label for="Lunch">Lunch</label>
-                    <br>
-                    <input v-model='mealType' type="radio" id="Dinner" value="dinner">
-                    <label for="Dinner">Dinner</label>
-                    <br>
-                    <input v-model='mealType' type="radio" id="Dessert" value="dessert">
-                    <label for="Dessert">Dessert</label>
+            <div class="card-group">
+                <div class="card text-white bg-secondary mb-3">
+                    <img v-bind:src=img class="card-img-top">
+                    <div class="card-body">
+                        <h5 v-show="!show" class="card-title">Any Random Reciepe From our Database</h5>
+                        <h4 class="card-title">{{ title }}</h4>
+                        <p class="card-text">{{ instructions }}</p>
+                        <button class="btn btn-primary" @click='randomRecipes()'>Get a random recipe</button>
+                    </div>
+                    <div v-show="show" class="card-footer">
+                        <small class="text-muted"><a v-show='show' target="_blank" v-bind:href=source>Source</a></small>
+                    </div>
                 </div>
-            <h2>{{ title }}</h2>
-            <p>{{ instructions }}</p>
-            <img id='foodIMG' v-bind:src=img>
-            <br>
-            <a v-show='show' target="_blank" v-bind:href=source>Source</a>
-
+                <div class="card text-white bg-secondary mb-3">
+                    <img v-bind:src=img2 class="card-img-top">
+                    <div class="card-body">
+                        <h5 v-show="!show2" class="card-title">Vegitarian Reciepes</h5>
+                        <h4 class="card-title">{{ title2 }}</h4>
+                        <p class="card-text">{{ instructions2 }}</p>
+                        <button class="btn btn-primary" @click='randomVeg()'>Get a random Vegetarian recipe</button>
+                    </div>
+                    <div v-show="show" class="card-footer">
+                        <small class="text-muted"><a v-show='show2' target="_blank" v-bind:href=source2>Source</a></small>
+                    </div>
+                </div>
+                <div class="card text-white bg-secondary mb-3">
+                    <img v-bind:src=img3 class="card-img-top">
+                    <div class="card-body">
+                        <h5 v-show="!show3" class="card-title">Random Meals</h5>
+                        <h4 class="card-title">{{ title3 }}</h4>
+                        <p class="card-text">{{ instructions3 }}</p>
+                        <button class="btn btn-primary" @click='randomMeal(mealType)'>Get a random meal</button>
+                        <div style="margin-top: .5rem" v-show="!show3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" v-model='mealType' id="Breakfast" value="breakfast">
+                                <label class="form-check-label" for="Breakfast">
+                                    Breakfast
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" v-model='mealType' type="radio" id="Lunch" value="lunch">
+                                <label class="form-check-label" for="Lunch">
+                                    Lunch
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" v-model='mealType' type="radio" id="Dinner" value="dinner">
+                                <label class="form-check-label" for="Dinner">
+                                    Dinner
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" v-model='mealType' type="radio" id="Dessert" value="dessert">
+                                <label class="form-check-label" for="Dessert">
+                                    Dessert
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div v-show="show" class="card-footer">
+                        <small class="text-muted"><a v-show='show3' target="_blank" v-bind:href=source3>Source</a></small>
+                    </div>
+                </div>                                                                                                              
+            </div>
         </div>
         <script src="app.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     </body>
