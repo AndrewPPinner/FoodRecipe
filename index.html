@@ -23,7 +23,7 @@
                         <button class="btn btn-primary" @click='randomRecipes()'>Get a random recipe</button>
                     </div>
                     <div v-show="show" class="card-footer">
-                        <small class="text-muted"><a v-show='show' target="_blank" v-bind:href=source>Source</a></small>
+                        <small class="text-muted"><a class="btn btn-info"  v-show='show' target="_blank" v-bind:href=source>Source</a></small>
                     </div>
                 </div>
                 <div class="card text-white bg-secondary mb-3">
@@ -35,7 +35,7 @@
                         <button class="btn btn-primary" @click='randomVeg()'>Get a random Vegetarian recipe</button>
                     </div>
                     <div v-show="show2" class="card-footer">
-                        <small class="text-muted"><a v-show='show2' target="_blank" v-bind:href=source2>Source</a></small>
+                        <small class="text-muted"><a  class="btn btn-info" v-show='show2' target="_blank" v-bind:href=source2>Source</a></small>
                     </div>
                 </div>
                 <div class="card text-white bg-secondary mb-3">
@@ -73,7 +73,7 @@
                         </div>
                     </div>
                     <div v-show="show3" class="card-footer">
-                        <small class="text-muted"><a v-show='show3' target="_blank" v-bind:href=source3>Source</a></small>
+                        <small class="text-muted"><a class="btn btn-info"  v-show='show3' target="_blank" v-bind:href=source3>Source</a></small>
                     </div>
                 </div>                                                                                                              
             </div>
